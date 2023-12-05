@@ -1,4 +1,4 @@
-/*package tn.esprit.spring.services;
+package tn.esprit.spring.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -17,51 +17,49 @@ import java.util.List;
 
 @SpringBootTest
 @TestMethodOrder(OrderAnnotation.class)
-class UserServiceImplTest { 
-	
+class UserServiceImplTest {
+
 	@Autowired
-	IUserService us; 
-	
-	@Test
+	IUserService us;
+
+	/*@Test
 	@Order(1)
 	public void testRetrieveAllUsers() {
-		List<User> listUsers = us.retrieveAllUsers(); 
+		List<User> listUsers = us.retrieveAllUsers();
 		Assertions.assertEquals(0, listUsers.size());
-	}
+	}*/
 
 	@Test
-	@Order(2)
+	@Order(1)
 	public void testAddUser() throws ParseException   {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		User u = new User("Mayssa1", "Mayssa1", d, Role.INGENIEUR); 
-		User userAdded = us.addUser(u); 
+		User u = new User("Mayssa1", "Mayssa1", d, Role.INGENIEUR);
+		User userAdded = us.addUser(u);
 		Assertions.assertEquals(u.getLastName(), userAdded.getLastName());
 	}
-
-	@Test
+	/*@Test
 	@Order(3)
 	public void testModifyUser() throws ParseException   {
-		
+
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = dateFormat.parse("2015-03-23");
-		User u = new User(1L, "Mayssa122222222", "Mayssa", d, Role.INGENIEUR); 
-		User userUpdated  = us.updateUser(u); 
+		User u = new User(1L, "Mayssa122222222", "Mayssa", d, Role.INGENIEUR);
+		User userUpdated  = us.updateUser(u);
 		Assertions.assertEquals(u.getLastName(), userUpdated.getLastName());
 	}
 
-	@Test
-	@Order(4)
-	public void testRetrieveUser() {
-		User userRetrieved = us.retrieveUser("1"); 
-		Assertions.assertEquals(1L, userRetrieved.getId());
-	}
-	
-	@Test
+        @Test
+        @Order(4)
+        public void testRetrieveUser() {
+            User userRetrieved = us.retrieveUser("1");
+            Assertions.assertEquals(1L, userRetrieved.getId());
+        }
+    @Test
 	@Order(5)
 	public void testDeleteUser() {
 		us.deleteUser("1");
 		Assertions.assertNull(us.retrieveUser("1"));
-	} 
-	     	
-}*/
+	}*/
+
+}
