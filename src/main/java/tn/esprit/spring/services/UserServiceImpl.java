@@ -2,7 +2,7 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
-import lombok.extern.slf4j.Slf4j;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.spring.entities.User;
 import tn.esprit.spring.repository.UserRepository;
-@Slf4j
+
 @Service
 
 public class UserServiceImpl implements IUserService {
@@ -27,13 +27,13 @@ public class UserServiceImpl implements IUserService {
 		List<User> users = null; 
 		try {
 
-			log.info("In Method retrieveAllUsers :");
+			l.info("In Method retrieveAllUsers :");
 			
 			users = userRepository.findAll(); 
 			 
-			log.info("Out of Method retrieveAllUsers with Success : " + users.size());
+			l.info("Out of Method retrieveAllUsers with Success : " + users.size());
 		}catch (Exception e) {
-			log.error("Out of Method retrieveAllUsers with Errors : ", e);
+			l.error("Out of Method retrieveAllUsers with Errors : ", e);
 		}
 		
 		return users;
